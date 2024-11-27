@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useAuth } from './AuthContext'
 import { Button, Card, CardContent, CardMedia, Collapse, Dialog, DialogContent, IconButton, Typography } from '@mui/material'
 import CloseIcon from "@mui/icons-material/Close";
 import { fetchTrailerKey } from '../api'
@@ -29,12 +28,9 @@ const MovieCard = ({ movie }) => {
     <>
       <Card sx={{ 
         width: '13rem',
-        // height:'15rem',
         margin: 2,
         borderRadius: 8,
         border:'1px solid gray',
-
-        
         }}>
         <CardMedia
           component="img"
@@ -47,7 +43,6 @@ const MovieCard = ({ movie }) => {
         <CardContent
           sx={{
             height:'85px',
-            // padding: "14px",
             position: "relative",
             display: "flex",
             flexDirection: "column",

@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { useAuth } from '../components/AuthContext'
 import { useNavigate } from 'react-router-dom'
-import { Box, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 import Trending from './Trending'
 
 function Home() {
-  const { login, user, logout } = useAuth()
+  const { user } = useAuth()
   const navigate= useNavigate()
   useEffect(
     ()=>{

@@ -9,10 +9,12 @@ import  film  from "../assets/icons/film.svg";
 import  heart  from "../assets/icons/heart.svg";
 import  trendingUp  from "../assets/icons/trending-up.svg";
 import  users  from "../assets/icons/users.svg";
-
+import  logoutIcon  from "../assets/icons/log-out.svg";
+import { useAuth } from './AuthContext';
 
 function Sidebar() {
-  const navItems=[
+  const {logout } = useAuth()
+ const navItems=[
     { text: "Home", path: "/home" ,imageIcon:film},
     { text: "Favorites", path: "/favorites" ,imageIcon:heart },
     { text: "Trending", path: "/trending" ,imageIcon:trendingUp},
@@ -20,13 +22,16 @@ function Sidebar() {
     { text: "Community", path: "/community" ,imageIcon:users},
     { text: "Social", path: "/social" ,imageIcon:comment},
   ]
+
+  const handleClick=()=> {
+     logout()
+  }
+  
   return (
       <Box
         sx={{
-          // width: "190px",
           backgroundColor: "#21201E",
           color: "white",
-          // height: "100%",
           padding: "2rem",
           display: "flex",
           flexDirection: "column",
@@ -38,7 +43,6 @@ function Sidebar() {
             display: 'flex',
             alignItems:'center',
             justifyContent:'center',
-            // gap: '0.4rem',
             marginBottom: '2rem'
           }}
         >
@@ -78,12 +82,36 @@ function Sidebar() {
                 height: '15px'
               }}
             />
-              <ListItemText primary={item.text} 
-              
-              />
-              
+              <ListItemText primary={item.text} />
             </ListItem>
-          ))}
+          ))
+          }
+         <ListItem
+          sx={{
+            color: "#ffffff50" ,
+            display:'flex',
+            gap:'1rem',
+            '&:hover':{
+             backgroundColor:'#21201E',
+             color:'white'
+            }
+           }}>
+             <img
+           src={logoutIcon}
+           alt={` Icon logout`}
+           style={{
+             width: '15px',
+             height: '15px'
+           }}
+
+           onClick={handleClick}
+         />
+            <ListItemText 
+            button
+            onClick={handleClick}
+            
+            primary='Log Out'/>
+          </ListItem> 
         </List>
       </Box>
   )

@@ -35,8 +35,7 @@ const Trending = ({text}) => {
       {movies ? (
           <Box sx={{ 
             display: 'grid',
-            gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", // Ajusta las columnas automáticamente
-            gap:'1rem',
+            gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
             padding: "10px",
              }}>
             {movies.map((movie) => (

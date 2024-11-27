@@ -22,8 +22,6 @@ const DynamicNavbar = () => {
       return {
         backgroundColor: "#21201E",
         height: "130px",
-        // display:"flex",
-        // justifyContent:'center'
       };
     }
   };
