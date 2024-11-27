@@ -11,9 +11,13 @@ import  trendingUp  from "../assets/icons/trending-up.svg";
 import  users  from "../assets/icons/users.svg";
 import  logoutIcon  from "../assets/icons/log-out.svg";
 import { useAuth } from './AuthContext';
+import { useNavigate } from 'react-router-dom'
+
 
 function Sidebar() {
-  const {logout } = useAuth()
+  const {logout,user } = useAuth()
+  const navigate= useNavigate()
+
  const navItems=[
     { text: "Home", path: "/home" ,imageIcon:film},
     { text: "Favorites", path: "/favorites" ,imageIcon:heart },
@@ -106,11 +110,15 @@ function Sidebar() {
 
            onClick={handleClick}
          />
-            <ListItemText 
-            button
-            onClick={handleClick}
-            
-            primary='Log Out'/>
+         {!user?(
+            navigate('/')
+         ):(
+           <ListItemText 
+           button
+           onClick={handleClick}
+           
+           primary='Log Out'/>
+         )}
           </ListItem> 
         </List>
       </Box>
